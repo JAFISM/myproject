@@ -18,6 +18,7 @@ class Onboardscreeen extends StatefulWidget {
 
 class _OnboardscreeenState extends State<Onboardscreeen> {
   late PageController _pageController;
+  int _pageIndex=0;
   @override
   void initState() {
     _pageController=PageController(initialPage: 0);
@@ -33,54 +34,85 @@ class _OnboardscreeenState extends State<Onboardscreeen> {
     return Scaffold(
       //backgroundColor: black10,
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: demo_data.length,
-                itemBuilder: (context,int index)
-                  => OnboardContent(
-                  image:demo_data[index].image,
-                  title:demo_data[index].title,
-                  description:demo_data[index].description,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              Expanded(
+                child: PageView.builder(
+                  controller: _pageController,
+                  onPageChanged: (index){
+                    setState(() {
+                      _pageIndex=index;
+                    });
+                  },
+                  itemCount: demo_data.length,
+                  itemBuilder: (context,int index)
+                    => OnboardContent(
+                    image:demo_data[index].image,
+                    title:demo_data[index].title,
+                    description:demo_data[index].description,
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(onPressed: (){
-                    _pageController.previousPage(duration: const Duration(milliseconds: 300), curve: Curves.ease);
-                  },
-                      style: ElevatedButton.styleFrom(
-                        shape: const CircleBorder(),
-                        backgroundColor: teal,
-                      ),
-                      child:Icon(Icons.fast_rewind_sharp,color: black10,)),
-                  ElevatedButton(onPressed: (){
-                    _pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.ease);
-                  },
-                      style: ElevatedButton.styleFrom(
-                        shape: const CircleBorder(),
-                        backgroundColor: teal,
-                      ),
-                      child:Icon(Icons.fast_forward_sharp,color: black10,)),
-                ],
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(onPressed: (){
+                      _pageController.previousPage(duration: const Duration(milliseconds: 300), curve: Curves.ease);
+                    },
+                        style: ElevatedButton.styleFrom(
+                          shape: const CircleBorder(),
+                          backgroundColor: teal,
+                        ),
+                        child:Icon(Icons.fast_rewind_sharp,color: black10,)),
+                    Row(
+                      children: [
+                       ...List.generate(demo_data.length,(int index)=>Padding(
+                         padding: const EdgeInsets.all(4.0),
+                         child: DotIndicator(isActive: index==_pageIndex,),
+                       ))
+                      ],
+                    ),
+                    ElevatedButton(onPressed: (){
+                      _pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.ease);
+                    },
+                        style: ElevatedButton.styleFrom(
+                          shape: const CircleBorder(),
+                          backgroundColor: teal,
+                        ),
+                        child:Icon(Icons.fast_forward_sharp,color: black10,)),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 }
+class DotIndicator extends StatelessWidget {
+  const DotIndicator({Key? key, this.isActive=false}) : super(key: key);
+final bool isActive;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height:isActive? 12:4,
+      width: 4,
+      decoration: BoxDecoration(
+          color: dark,
+          borderRadius:const BorderRadius.all(Radius.circular(12))
+      ),
+    );
+  }
+}
+
+
 class Onboard {
   final String image, title, description;
-
-
   Onboard(
       {required this.image, required this.title, required this.description,});
 }
