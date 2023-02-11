@@ -8,6 +8,8 @@ void main(){
 }
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -18,7 +20,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 1000 ));
+    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 1000 ));
     _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
     _controller.forward();
     super.initState();
@@ -31,30 +33,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _controller,
-      builder: (context, child) {
-        return Scaffold(
-          backgroundColor:green,
-          body: Center(
-            heightFactor: 1.45,
-            child: Transform.scale(
-              scale: _animation.value,
-              child: Container(
-                height: MediaQuery.of(context).size.height/2,
-                width: double.infinity,
-                child:Column(
+    return Scaffold(
+      backgroundColor: green,
+      body: AnimatedBuilder(
+        animation: _controller,
+        builder: (context, child) {
+          return  Center(
+              //heightFactor: 1,
+              child: Transform.scale(
+                scale: _animation.value,
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Image.asset("assets/Ev_Logo.png",scale: 1,),
-                    Text("Connect your Vehicle",style: TextStyle(color: black10,fontWeight: FontWeight.bold,fontSize: 20),)
+                    Image.asset("assets/Ev_Logo.png",scale: 1.5,),
+                    //Text("Connect your Vehicle",style: TextStyle(color: black10,fontWeight: FontWeight.bold,fontSize: 20),)
                   ],
                 ),
               ),
-            ),
-          ),
-        );
-      },
+            );
+        },
+      ),
     );
   }
 
