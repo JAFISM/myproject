@@ -4,7 +4,7 @@ import 'package:myproject/color_palette.dart';
 
 
 void main(){
-   runApp(MaterialApp(
+   runApp(const MaterialApp(
      home: Onboardscreeen(),
      debugShowCheckedModeBanner: false,
    ));
@@ -31,7 +31,7 @@ class _OnboardscreeenState extends State<Onboardscreeen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: black10,
+      //backgroundColor: black10,
       body: SafeArea(
         child: Column(
           children: [
@@ -47,26 +47,29 @@ class _OnboardscreeenState extends State<Onboardscreeen> {
                 ),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(onPressed: (){
-                  _pageController.previousPage(duration: Duration(milliseconds: 300), curve: Curves.ease);
-                },
-                    style: ElevatedButton.styleFrom(
-                      shape: CircleBorder(),
-                      backgroundColor: teal,
-                    ),
-                    child:Icon(Icons.fast_rewind_sharp,color: black10,)),
-                ElevatedButton(onPressed: (){
-                  _pageController.nextPage(duration: Duration(milliseconds: 300), curve: Curves.ease);
-                },
-                    style: ElevatedButton.styleFrom(
-                      shape: CircleBorder(),
-                      backgroundColor: teal,
-                    ),
-                    child:Icon(Icons.fast_forward_sharp,color: black10,)),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(onPressed: (){
+                    _pageController.previousPage(duration: const Duration(milliseconds: 300), curve: Curves.ease);
+                  },
+                      style: ElevatedButton.styleFrom(
+                        shape: const CircleBorder(),
+                        backgroundColor: teal,
+                      ),
+                      child:Icon(Icons.fast_rewind_sharp,color: black10,)),
+                  ElevatedButton(onPressed: (){
+                    _pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.ease);
+                  },
+                      style: ElevatedButton.styleFrom(
+                        shape: const CircleBorder(),
+                        backgroundColor: teal,
+                      ),
+                      child:Icon(Icons.fast_forward_sharp,color: black10,)),
+                ],
+              ),
             ),
           ],
         ),
@@ -77,24 +80,26 @@ class _OnboardscreeenState extends State<Onboardscreeen> {
 class Onboard {
   final String image, title, description;
 
+
   Onboard(
-      {required this.image, required this.title, required this.description});
+      {required this.image, required this.title, required this.description,});
 }
   final List<Onboard> demo_data = [
     Onboard(
-        image: "assets/images/Model-Y-Specs-Hero-Desktop-LHD-removebg-preview.png",
+        image: "assets/images/Charging-car.png",
         title: "Find the nearest charging Station",
-        description: "Connect your Ev"
+        description: "Connect your Ev",
+
     ),
     Onboard(
-        image: "assets/images/Model-Y-Specs-Hero-Desktop-LHD-removebg-preview.png",
+        image: "assets/images/home-modal-modelx.png",
         title: "Find the nearest charging Station",
-        description: "Connect your Ev"
+        description: "Connect your Ev",
     ),
     Onboard(
-        image: "assets/images/Model-Y-Specs-Hero-Desktop-LHD-removebg-preview.png",
+        image: "assets/images/Electric-Scooter-charging.png",
         title: "Find the nearest charging Station",
-        description: "Connect your Ev"
+        description: "Connect your Ev",
     ),
 
   ];
@@ -108,16 +113,16 @@ final String image,title,description;
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Spacer(),
+          const Spacer(),
           Image.asset(image,height: 300,),
          // Spacer(),
           Text(title,
             textAlign: TextAlign.center,
-            style: TextStyle(color: teal,fontWeight: FontWeight.bold),
+            style: TextStyle(color: dark,fontWeight: FontWeight.bold,fontSize: 20),
           ),
-          SizedBox(height: 16,),
-          Text(description,textAlign: TextAlign.center,style: TextStyle(color: Colors.grey,),),
-          Spacer(),
+          const SizedBox(height: 16,),
+          Text(description,textAlign: TextAlign.center,style:TextStyle( color: teal,fontSize: 20)),
+          const Spacer(),
         ],
       ),
     );
