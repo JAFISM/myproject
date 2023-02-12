@@ -4,11 +4,11 @@ import 'package:myproject/color_palette.dart';
 void main() => runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: LoginPage(),
     )
 );
 
-class HomePage extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
                 children: <Widget>[
                   Text("Login", style: TextStyle(color: dark, fontSize: 40),),
                   const SizedBox(height: 10,),
-                   Text("Welcome Back", style: TextStyle(color: dark, fontSize: 18),),
+                   Text("Stay Charged!", style: TextStyle(color: dark, fontSize: 18),),
                 ],
               ),
             ),
