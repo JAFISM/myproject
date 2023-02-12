@@ -52,7 +52,7 @@ class _HomeBarState extends State<HomeBar> {
             BoxShadow(
               color: Color.fromARGB(255,17,255,208),
               blurRadius: 5,
-              offset: Offset(0,2),
+              offset: Offset(0,1),
             )
           ],
           // enableFloatingNavBar: false,

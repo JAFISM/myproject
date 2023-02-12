@@ -119,19 +119,19 @@ class Onboard {
   final List<Onboard> demo_data = [
     Onboard(
         image: "assets/images/Charging-car.png",
-        title: "Find the nearest charging Station",
-        description: "Connect your Ev",
+        title: "Find your nearest charging station using the Plug App",
+        description: "Helping you to find a place to charge a vehicle near you at a low price",
 
     ),
     Onboard(
         image: "assets/images/home-modal-modelx.png",
-        title: "Find the nearest charging Station",
-        description: "Connect your Ev",
+        title: "Freedom to travel",
+        description: "40,000 + \n Global Super Chargers",
     ),
     Onboard(
         image: "assets/images/Electric-Scooter-charging.png",
-        title: "Find the nearest charging Station",
-        description: "Connect your Ev",
+        title: "Locate. Connect. Charge.",
+        description: "Monitor charging status of your scooter through the Plug app.",
     ),
 
   ];
@@ -150,10 +150,10 @@ final String image,title,description;
          // Spacer(),
           Text(title,
             textAlign: TextAlign.center,
-            style: TextStyle(color: dark,fontWeight: FontWeight.bold,fontSize: 20),
+            style: TextStyle(color: dark,fontWeight: FontWeight.bold,fontSize: 25),
           ),
           const SizedBox(height: 16,),
-          Text(description,textAlign: TextAlign.center,style:TextStyle( color: teal,fontSize: 20)),
+          Text(description,textAlign: TextAlign.center,style:TextStyle( color: dark,fontSize: 18)),
           const Spacer(),
         ],
       ),
