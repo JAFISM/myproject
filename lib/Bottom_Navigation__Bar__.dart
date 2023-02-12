@@ -14,18 +14,18 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Home(),
+      home: HomeBar(),
     );
   }
 }
 
-class Home extends StatefulWidget {
+class HomeBar extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _HomeBarState createState() => _HomeBarState();
 }
 
-class _HomeState extends State<Home> {
-  var _selectedTab = _SelectedTab.home;
+class _HomeBarState extends State<HomeBar> {
+  var _selectedTab = _SelectedTab.map;
 
   void _handleIndexChanged(int i) {
     setState(() {
@@ -47,30 +47,38 @@ class _HomeState extends State<Home> {
           currentIndex: _SelectedTab.values.indexOf(_selectedTab),
           dotIndicatorColor: Colors.white,
           unselectedItemColor: Colors.grey[300],
+          borderRadius: 25,
+          boxShadow: [
+            BoxShadow(
+              color: Color.fromARGB(255,17,255,208),
+              blurRadius: 5,
+              offset: Offset(0,2),
+            )
+          ],
           // enableFloatingNavBar: false,
           onTap: _handleIndexChanged,
           items: [
             /// Home
             DotNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.map,),
               selectedColor: Color.fromARGB(255,17,255,208),
             ),
 
-            /// Likes
+            /// history
             DotNavigationBarItem(
-              icon: Icon(Icons.favorite),
+              icon: Icon(Icons.history,),
               selectedColor: Color.fromARGB(255,17,255,208),
             ),
 
-            /// Search
+            /// charging
             DotNavigationBarItem(
-              icon: Icon(Icons.search),
+              icon: Icon(Icons.charging_station_outlined,),
               selectedColor: Color.fromARGB(255,17,255,208),
             ),
 
             /// Profile
             DotNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.person,),
               selectedColor: Color.fromARGB(255,17,255,208),
             ),
           ],
@@ -80,4 +88,4 @@ class _HomeState extends State<Home> {
   }
 }
 
-enum _SelectedTab { home, favorite, search, person }
+enum _SelectedTab { map, history, charging, person }
