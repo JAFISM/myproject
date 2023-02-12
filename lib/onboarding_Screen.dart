@@ -32,7 +32,7 @@ class _OnboardscreeenState extends State<Onboardscreeen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: black10,
+      //backgroundColor: dark,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -65,9 +65,9 @@ class _OnboardscreeenState extends State<Onboardscreeen> {
                     },
                         style: ElevatedButton.styleFrom(
                           shape: const CircleBorder(),
-                          backgroundColor: teal,
+                          backgroundColor: dark,
                         ),
-                        child:Icon(Icons.fast_rewind_sharp,color: black10,)),
+                        child:Icon(Icons.fast_rewind_sharp,color: teal,)),
                     Row(
                       children: [
                        ...List.generate(demo_data.length,(int index)=>Padding(
@@ -81,9 +81,9 @@ class _OnboardscreeenState extends State<Onboardscreeen> {
                     },
                         style: ElevatedButton.styleFrom(
                           shape: const CircleBorder(),
-                          backgroundColor: teal,
+                          backgroundColor: dark,
                         ),
-                        child:Icon(Icons.fast_forward_sharp,color: black10,)),
+                        child:Icon(Icons.fast_forward_sharp,color: teal,)),
                   ],
                 ),
               ),

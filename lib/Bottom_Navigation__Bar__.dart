@@ -70,7 +70,7 @@ class _HomeBarState extends State<HomeBar> {
               selectedColor: Color.fromARGB(255,17,255,208),
             ),
 
-            /// charging
+            /// vehicle charging
             DotNavigationBarItem(
               icon: Icon(Icons.charging_station_outlined,),
               selectedColor: Color.fromARGB(255,17,255,208),
