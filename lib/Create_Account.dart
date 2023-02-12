@@ -66,7 +66,7 @@ class Create_Account extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         const SizedBox(
-                          height: 60,
+                          height: 50,
                         ),
                         Container(
                           decoration: BoxDecoration(
@@ -149,25 +149,28 @@ class Create_Account extends StatelessWidget {
                         ),
                         SizedBox(
                           height: 50,
-                          width: MediaQuery.of(context).size.width / 2,
+                          width: MediaQuery.of(context).size.width / 1,
                           child: ElevatedButton(
                             onPressed: () {},
                             child: Text(
                               "Sign Up",
-                              style: TextStyle(color: black10),
+                              style: TextStyle(color:
+                              //black10
+                                teal
+                              ),
                             ),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: teal,
+                              backgroundColor: dark,
                               shadowColor: teal,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50),
+                                borderRadius: BorderRadius.circular(20),
                               ),
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 50,
-                        ),
+                        // const SizedBox(
+                        //   height: 50,
+                        // ),
                       ],
                     ),
                   ),

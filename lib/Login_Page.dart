@@ -101,18 +101,22 @@ class LoginPage extends StatelessWidget {
                         const SizedBox(height: 40,),
                         SizedBox(
                           height: 50,
-                          width: MediaQuery.of(context).size.width/2,
+                          width: MediaQuery.of(context).size.width/1,
                           child: ElevatedButton(
                             onPressed: () {},
                             child: Text(
                               "Login",
-                              style: TextStyle(color: black10),
+                              style: TextStyle(
+                                  color:
+                                  //black10
+                                teal,
+                              ),
                             ),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: teal,
+                              backgroundColor: dark,
                               shadowColor: teal,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50),
+                                borderRadius: BorderRadius.circular(20),
                               ),
                             ),
                           ),
