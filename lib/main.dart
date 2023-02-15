@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:myproject/color_palette.dart';
+import 'Login_Page.dart';
 void main(){
   runApp(MaterialApp(
     home: HomePage(),
@@ -18,11 +21,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late AnimationController _controller;
   late Animation _animation;
 
+
   @override
   void initState() {
     _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 1000 ));
     _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
     _controller.forward();
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => LoginPage()));
+    });
     super.initState();
   }
   @override

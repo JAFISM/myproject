@@ -42,7 +42,7 @@ class Create_Account extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     "Create\nAccount",
-                    style: TextStyle(color: dark, fontSize: 40),
+                    style: TextStyle(color: dark, fontSize: 40,fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
                     height: 10,
